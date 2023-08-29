@@ -48,7 +48,7 @@ export default function AddUser() {
                 Email
               </label>
               <input type={'text'} className='form-control' placeholder='Enter your email' name='email' value={email} onChange={onInputChange}/>
-            </div> 
+            </div>   
             <button type='submit' className='btn btn-outline-primary'>Submit</button>
             <Link type='submit' className='btn btn-outline-danger mx-2' to={"/"}>Cancel</Link>
             </form>
