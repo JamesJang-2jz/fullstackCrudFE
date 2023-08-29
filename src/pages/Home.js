@@ -6,7 +6,6 @@ export default function Home() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-      // console.log("james was here")
       loadUsers();
     }, [] );
 
@@ -46,7 +45,6 @@ export default function Home() {
             }
         </tbody>
       </table>
-
     </div>
   </div>
   )
