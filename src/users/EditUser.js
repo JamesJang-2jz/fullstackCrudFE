@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function EditUser() {
 
   let navigate=useNavigate();
+
+  const {id} = useParams();
 
   const [user, setUser] = useState({
     name:"",
@@ -18,13 +20,21 @@ export default function EditUser() {
       setUser({...user,[e.target.name]:e.target.value})
   }
 
+  useEffect(() => {
+    loadUser();
+  })
+
   const onSubmit = async (e)=> { //  async/await is a better/cleaner way to handle promises. it makes the asynchronous function pause until the promise is resolved. 
       e.preventDefault();
-      await axios.put("http://localhost:8080/crud/user", user)
+      await axios.put(`http://localhost:8080/crud/user/${id}`, user)
       navigate('/');
   }  
 
-
+  const loadUser = async () => {
+    const result = await axios.get(`http://localhost:8080/crud/user/${id}`)
+    setUser(result.data);
+  }
+ 
   return (
     <div className='container'>
       <div className='row'>

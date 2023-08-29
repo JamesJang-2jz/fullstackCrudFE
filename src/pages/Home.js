@@ -32,7 +32,7 @@ export default function Home() {
           {
               users.map((user, index) => (
                 <tr>
-                  <th scope="row" key={user}>{index+1}</th>
+                  <th scope="row" key={user}>{user.id}</th> {/*can be index + 1 in parameter to show as sequential*/}
                   <td>{user.name}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
