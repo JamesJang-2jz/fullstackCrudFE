@@ -22,7 +22,12 @@ export default function EditUser() {
 
   useEffect(() => {
     loadUser();
-  })
+  }, []) 
+/**the initial render runs any effects using useEffect 
+ * without empty array, the component will think there are dependencies and continue reloading 
+ * ie. without empty array, when you type into input component, it will keep reloading and your keystrokes will disappear
+ * so without [], it will re-render whenever something changes.
+ */
 
   const onSubmit = async (e)=> { //  async/await is a better/cleaner way to handle promises. it makes the asynchronous function pause until the promise is resolved. 
       e.preventDefault();
