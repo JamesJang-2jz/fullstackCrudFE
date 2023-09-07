@@ -10,13 +10,11 @@ export default function Navbar() {
 // const handleClick= () => {
 //   navigate("/adduser");
 // }
-
-
   return (
     <div> James Jang's CRUD <a href= "https://github.com/JamesJang-2jz"> GitHub</a>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-1">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Full Stack Crud App</a>
+    <Link className="navbar-brand" to={"/"}>Full Stack Crud App</Link>
     <button className="navbar-toggler" 
     type="button" 
     data-bs-toggle="collapse" 
