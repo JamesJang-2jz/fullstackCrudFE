@@ -13,8 +13,8 @@ class UserDataService {
         return http.post("/user", data);
     }
 
-    update(id){
-        return http.put(`/user/${id}`);
+    update(id, data){
+        return http.put(`/user/${id}`, data);
     }
 
     delete(id){
