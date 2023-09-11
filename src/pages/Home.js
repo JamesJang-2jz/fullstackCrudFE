@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom';
 import http from "../http-common";
+import userdataService from '../services/userdata.service';
 
 export default function Home() {
 
@@ -13,7 +14,7 @@ export default function Home() {
     }, [] );
 
     const loadUsers = async () => {
-      const result = await http.get("users")
+      const result = await userdataService.getAll();
       setUsers(result.data);
     }
 
