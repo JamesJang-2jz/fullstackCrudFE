@@ -71,7 +71,18 @@ export const deleteAllUsers = () => async (dispatch) => {
     }
 };
 
+export const findUserByEmail = (email) => async (dispatch) => {
+    try {
+        const result = await userdataService.findByEmail(email);
 
+        dispatch({
+            type: RETRIEVE_USERS,
+            payload: result.data
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
 
