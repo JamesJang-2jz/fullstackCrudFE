@@ -1,4 +1,4 @@
-import { applyMiddleware } from "redux"; // use configureStore, createStore is deprecated
+import { applyMiddleware, createStore, legacy_createStore } from "redux"; // use configureStore, createStore is deprecated
 import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from "redux-devtools-extension"; // named imports use curly braces
 import thunk from 'redux-thunk'; // default imports dont use curly braces
@@ -8,10 +8,10 @@ const initialState = {};
 
 const middleware = [thunk];
 
-const store = configureStore( // createStore is deprecated
+const store = legacy_createStore( // createStore is deprecated
     rootReducer,
     initialState,
     composeWithDevTools(applyMiddleware(...middleware))
 );
 
-export default store;
+export default store; 
