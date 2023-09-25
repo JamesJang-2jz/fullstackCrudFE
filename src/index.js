@@ -9,7 +9,7 @@ import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode> // used during development to identify potential problems in your app. optional but recommended for development
+  <React.StrictMode> {/*used during development to identify potential problems in your app. optional but recommended for development*/}
     <Provider store={store}>
       <App />
     </Provider>
