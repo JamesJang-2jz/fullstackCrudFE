@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useParams } from 'react-router-dom';
 import http from "../http-common";
 import userdataService from '../services/userdata.service';
+import { confirmAlert } from 'react-confirm-alert';
 
 export default function Home() {
 
@@ -21,6 +22,22 @@ export default function Home() {
     const deleteUser = async (id) => {
         await axios.delete(`http://localhost:8080/crud/user/${id}`)
         loadUsers();
+    }
+
+    const confirmSubmit = (id, name) => {
+        confirmAlert({
+          title: 'Hit Yes to confirm',
+          message: `You are about to delete user: ${name}. Are you sure?`,
+          buttons: [
+            {
+              label:'Yes',
+              onClick: () => deleteUser(id)
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
     }
 
   return (
@@ -49,7 +66,7 @@ export default function Home() {
                     <Link className='btn btn-outline-primary mx-2 my-2'
                     to={`/editUser/${user.id}`}>Edit</Link>
                     <button className='btn btn-danger mx-2 my-2' 
-                    onClick={() => deleteUser(user.id)}>Delete</button>
+                    onClick={() => confirmSubmit(user.id, user.name)}>Delete</button>
                   </td>
                 </tr>
               ))

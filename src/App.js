@@ -10,10 +10,9 @@ import ViewUser from './users/ViewUser';
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Navbar/>
-        <nav className="navbar navbar-expand navbar-dark bg-dark py-4">
+        {/* <nav className="navbar navbar-expand navbar-dark bg-dark py-4">
           <Link to={"/adduser"} className="navbar-brand">
             bezKoder
           </Link>
@@ -29,7 +28,7 @@ function App() {
               </Link>
             </li>
           </div>
-        </nav>
+        </nav> */}
           <Routes>
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/addUser" element={<AddUser/>} />
