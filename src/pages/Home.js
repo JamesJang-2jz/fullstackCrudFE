@@ -65,8 +65,9 @@ export default function Home() {
                     <Link className='btn btn-primary mx-2 my-2' to={`/viewUser/${user.id}`}>View</Link>
                     <Link className='btn btn-outline-primary mx-2 my-2'
                     to={`/editUser/${user.id}`}>Edit</Link>
-                    <button className='btn btn-danger mx-2 my-2' 
+                    <button className='btn btn-danger mx-2 my-2' data-toggle="modal" data-target="#exampleModal"
                     onClick={() => confirmSubmit(user.id, user.name)}>Delete</button>
+                    
                   </td>
                 </tr>
               ))
